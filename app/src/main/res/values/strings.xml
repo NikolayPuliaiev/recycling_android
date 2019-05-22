@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">recycling_android</string>
+    <string name="map">Map</string>
+    <string name="sorting">Sorting</string>
+    <string name="profile">Profile</string>
+    <string name="favorite">Favorite</string>
 </resources>
