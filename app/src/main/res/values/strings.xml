@@ -4,4 +4,6 @@
     <string name="sorting">Sorting</string>
     <string name="profile">Profile</string>
     <string name="favorite">Favorite</string>
+    <string name="filter">Filter</string>
+    <string name="reset">Reset</string>
 </resources>

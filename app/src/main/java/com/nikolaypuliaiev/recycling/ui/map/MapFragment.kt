@@ -1,5 +1,6 @@
 package com.nikolaypuliaiev.recycling.ui.map
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -13,6 +14,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.FragmentMapBinding
+import com.nikolaypuliaiev.recycling.ui.main.MainActivity
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
 
 
@@ -37,6 +39,7 @@ class MapFragment : BaseFragment() {
         binding.viewModel = viewModel
 
         setupUI()
+        setupObservers()
 
         // Initialize Google Maps
 
@@ -82,5 +85,11 @@ class MapFragment : BaseFragment() {
             val cameraPosition = CameraPosition.Builder().target(sydney).zoom(12f).build()
             map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
         }
+    }
+
+    private fun setupObservers() {
+        viewModel.filterButtonClick.observe(this, Observer {
+            (activity as? MainActivity)?.openFilterScreen()
+        })
     }
 }

@@ -8,6 +8,7 @@ import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.ActivityMainBinding
 import com.nikolaypuliaiev.recycling.ui.favorite.FavoriteFragment
 import com.nikolaypuliaiev.recycling.ui.map.MapFragment
+import com.nikolaypuliaiev.recycling.ui.mapfilter.MapFilterFragment
 import com.nikolaypuliaiev.recycling.ui.profile.ProfileFragment
 import com.nikolaypuliaiev.recycling.ui.sorting.SortingFragment
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseActivity
@@ -84,6 +85,15 @@ class MainActivity : BaseActivity() {
             .replace(R.id.container, fragment)
             .addToBackStack(null)
             .commit()
+    }
+
+    fun openFilterScreen() {
+        supportFragmentManager
+            ?.beginTransaction()
+            ?.setCustomAnimations(0, R.anim.slide_up)
+            ?.replace(R.id.base_container, MapFilterFragment.newInstance())
+            ?.addToBackStack("map_filter")
+            ?.commit()
     }
 }
 
