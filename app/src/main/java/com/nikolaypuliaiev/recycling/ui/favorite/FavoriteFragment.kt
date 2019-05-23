@@ -32,4 +32,8 @@ class FavoriteFragment: BaseFragment() {
 
         return binding.root
     }
+
+    private fun setupUI() {
+        
+    }
 }
