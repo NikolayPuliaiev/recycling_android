@@ -22,6 +22,8 @@ class MainActivity : BaseActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+    var fragmentInstance = FragmentInstance.NONE
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,6 +33,7 @@ class MainActivity : BaseActivity() {
 
         // Open first tab
         openFragment(MapFragment.newInstance())
+        fragmentInstance = FragmentInstance.MAP
 
         setupObservers()
     }
@@ -39,22 +42,37 @@ class MainActivity : BaseActivity() {
         binding.navigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_map -> {
-                    openFragment(MapFragment.newInstance())
+                    if (fragmentInstance != FragmentInstance.MAP) {
+                        openFragment(MapFragment.newInstance())
+                        fragmentInstance = FragmentInstance.MAP
+                    }
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_sorting -> {
-                    openFragment(SortingFragment.newInstance())
+                    if (fragmentInstance != FragmentInstance.SORTING) {
+                        openFragment(SortingFragment.newInstance())
+                        fragmentInstance = FragmentInstance.SORTING
+                    }
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_profile -> {
-                    openFragment(ProfileFragment.newInstance())
+                    if (fragmentInstance != FragmentInstance.PROFILE) {
+                        openFragment(ProfileFragment.newInstance())
+                        fragmentInstance = FragmentInstance.PROFILE
+                    }
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_favorite -> {
-                    openFragment(FavoriteFragment.newInstance())
+                    if (fragmentInstance != FragmentInstance.FAVORITE) {
+                        openFragment(FavoriteFragment.newInstance())
+                        fragmentInstance = FragmentInstance.FAVORITE
+                    }
                     return@setOnNavigationItemSelectedListener true
                 }
-                else -> false
+                else -> {
+                    fragmentInstance = FragmentInstance.NONE
+                    false
+                }
             }
 
         }
@@ -67,4 +85,8 @@ class MainActivity : BaseActivity() {
             .addToBackStack(null)
             .commit()
     }
+}
+
+enum class FragmentInstance {
+    MAP, SORTING, PROFILE, FAVORITE, NONE
 }
