@@ -6,4 +6,6 @@
     <string name="favorite">Favorite</string>
     <string name="filter">Filter</string>
     <string name="reset">Reset</string>
+    <string name="distance">Distance</string>
+    <string name="sorting_type">Sorting type</string>
 </resources>

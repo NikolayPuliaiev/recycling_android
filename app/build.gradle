@@ -54,4 +54,7 @@ dependencies {
     // Google Maps
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
 
+    // SeekBar
+    implementation 'com.github.Jay-Goo:RangeSeekBar:v2.0.4'
+
 }

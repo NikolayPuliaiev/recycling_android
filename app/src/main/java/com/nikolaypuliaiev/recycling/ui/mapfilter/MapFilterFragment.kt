@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jaygoo.widget.OnRangeChangedListener
+import com.jaygoo.widget.RangeSeekBar
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.FragmentMapFilterBinding
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
@@ -41,6 +43,29 @@ class MapFilterFragment: BaseFragment() {
             override fun onDebouncedClick(v: View) {
                 closeCurrentFragment()
             }
+        })
+
+        // Seek bar
+        binding.seekBar.setRange(0f, 200f)
+        binding.seekBar.setValue(100f)
+        binding.seekBar.setIndicatorTextDecimalFormat("0")
+        binding.seekBar.setOnRangeChangedListener(object: OnRangeChangedListener {
+            override fun onStartTrackingTouch(view: RangeSeekBar?, isLeft: Boolean) {
+
+            }
+
+            override fun onRangeChanged(view: RangeSeekBar?, leftValue: Float, rightValue: Float, isFromUser: Boolean) {
+                if (leftValue == 200f) {
+                    view?.setIndicatorText("everywhere")
+                } else {
+                    view?.setIndicatorText("${leftValue.toInt()} km")
+                }
+            }
+
+            override fun onStopTrackingTouch(view: RangeSeekBar?, isLeft: Boolean) {
+
+            }
+
         })
     }
 }
