@@ -37,6 +37,14 @@ class MapFilterViewModel : BaseViewModel() {
         MutableLiveData<Boolean>()
     }
 
+    val applyClicked: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
+    val resetClicked: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
     fun onGlassClick(pressed: Boolean) {
         glassClicked.value = pressed
     }
@@ -67,5 +75,13 @@ class MapFilterViewModel : BaseViewModel() {
 
     fun onOtherClick(pressed: Boolean) {
         otherClicked.value = pressed
+    }
+
+    fun onApplyClick() {
+        applyClicked.value = true
+    }
+
+    fun onResetClick() {
+        resetClicked.value = true
     }
 }

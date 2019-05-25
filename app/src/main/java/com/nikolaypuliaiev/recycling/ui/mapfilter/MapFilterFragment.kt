@@ -70,14 +70,8 @@ class MapFilterFragment : BaseFragment() {
 
         })
 
-        binding.glassPressed = false
-        binding.batteriesPressed = false
-        binding.metalPressed = false
-        binding.otherPressed = false
-        binding.paperPressed = false
-        binding.plasticPressed = false
-        binding.woodPressed = false
-        binding.tablewarePressed = false
+        // set value for all sorting types
+        resetSortingTypes()
     }
 
     private fun setupObservers() {
@@ -128,5 +122,25 @@ class MapFilterFragment : BaseFragment() {
                 binding.woodPressed = !it
             }
         })
+
+        viewModel.applyClicked.observe(this, Observer {
+            closeCurrentFragment()
+        })
+
+        viewModel.resetClicked.observe(this, Observer {
+            binding.seekBar.setValue(100f)
+            resetSortingTypes()
+        })
+    }
+
+    fun resetSortingTypes() {
+        binding.glassPressed = false
+        binding.batteriesPressed = false
+        binding.metalPressed = false
+        binding.otherPressed = false
+        binding.paperPressed = false
+        binding.plasticPressed = false
+        binding.woodPressed = false
+        binding.tablewarePressed = false
     }
 }
