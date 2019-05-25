@@ -15,7 +15,7 @@ open class BaseFragment: Fragment() {
     fun closeCurrentFragment() {
         activity?.supportFragmentManager
             ?.beginTransaction()
-            ?.setCustomAnimations(0, R.anim.slide_down)
+            ?.setCustomAnimations(0, R.anim.slide_left)
             ?.remove(this)
             ?.commit()
     }

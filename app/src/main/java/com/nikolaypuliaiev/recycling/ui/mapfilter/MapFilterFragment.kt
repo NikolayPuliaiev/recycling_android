@@ -1,5 +1,6 @@
 package com.nikolaypuliaiev.recycling.ui.mapfilter
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -13,7 +14,7 @@ import com.nikolaypuliaiev.recycling.databinding.FragmentMapFilterBinding
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
 import com.nikolaypuliaiev.recycling.utils.DebouncedOnClickListener
 
-class MapFilterFragment: BaseFragment() {
+class MapFilterFragment : BaseFragment() {
 
     companion object {
         fun newInstance(): MapFilterFragment = MapFilterFragment()
@@ -34,12 +35,13 @@ class MapFilterFragment: BaseFragment() {
         binding.viewModel = viewModel
 
         setupUI()
+        setupObservers()
 
         return binding.root
     }
 
     private fun setupUI() {
-        binding.backButton.setOnClickListener(object: DebouncedOnClickListener(500) {
+        binding.backButton.setOnClickListener(object : DebouncedOnClickListener(500) {
             override fun onDebouncedClick(v: View) {
                 closeCurrentFragment()
             }
@@ -49,7 +51,7 @@ class MapFilterFragment: BaseFragment() {
         binding.seekBar.setRange(0f, 200f)
         binding.seekBar.setValue(100f)
         binding.seekBar.setIndicatorTextDecimalFormat("0")
-        binding.seekBar.setOnRangeChangedListener(object: OnRangeChangedListener {
+        binding.seekBar.setOnRangeChangedListener(object : OnRangeChangedListener {
             override fun onStartTrackingTouch(view: RangeSeekBar?, isLeft: Boolean) {
 
             }
@@ -66,6 +68,65 @@ class MapFilterFragment: BaseFragment() {
 
             }
 
+        })
+
+        binding.glassPressed = false
+        binding.batteriesPressed = false
+        binding.metalPressed = false
+        binding.otherPressed = false
+        binding.paperPressed = false
+        binding.plasticPressed = false
+        binding.woodPressed = false
+        binding.tablewarePressed = false
+    }
+
+    private fun setupObservers() {
+        viewModel.glassClicked.observe(this, Observer {
+            it?.let {
+                binding.glassPressed = !it
+            }
+        })
+
+        viewModel.batteriesClicked.observe(this, Observer {
+            it?.let {
+                binding.batteriesPressed = !it
+            }
+        })
+
+        viewModel.metalClicked.observe(this, Observer {
+            it?.let {
+                binding.metalPressed = !it
+            }
+        })
+
+        viewModel.otherClicked.observe(this, Observer {
+            it?.let {
+                binding.otherPressed = !it
+            }
+        })
+
+        viewModel.paperClicked.observe(this, Observer {
+            it?.let {
+                binding.paperPressed = !it
+            }
+        })
+
+        viewModel.plasticClicked.observe(this, Observer {
+            it?.let {
+                binding.plasticPressed = !it
+            }
+        })
+
+        viewModel.tablewareClicked.observe(this, Observer {
+            it?.let {
+                binding.tablewarePressed = !it
+            }
+        })
+
+        viewModel.woodClicked.observe(this, Observer {
+            it?.let {
+                binding.woodPressed = !it
+            }
         })
     }
 }

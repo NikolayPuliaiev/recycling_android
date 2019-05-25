@@ -90,7 +90,7 @@ class MainActivity : BaseActivity() {
     fun openFilterScreen() {
         supportFragmentManager
             ?.beginTransaction()
-            ?.setCustomAnimations(0, R.anim.slide_up)
+            ?.setCustomAnimations(R.anim.slide_right, 0, 0, R.anim.slide_left)
             ?.replace(R.id.base_container, MapFilterFragment.newInstance())
             ?.addToBackStack("map_filter")
             ?.commit()

@@ -5,6 +5,15 @@
         <variable
                 name="viewModel"
                 type="com.nikolaypuliaiev.recycling.ui.mapfilter.MapFilterViewModel"/>
+
+        <variable name="glassPressed" type="Boolean"/>
+        <variable name="plasticPressed" type="Boolean"/>
+        <variable name="paperPressed" type="Boolean"/>
+        <variable name="tablewarePressed" type="Boolean"/>
+        <variable name="batteriesPressed" type="Boolean"/>
+        <variable name="woodPressed" type="Boolean"/>
+        <variable name="metalPressed" type="Boolean"/>
+        <variable name="otherPressed" type="Boolean"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -74,9 +83,10 @@
                 app:rsb_progress_default_color="@color/royal_blue"
                 app:rsb_progress_color="@color/royal_blue"
                 app:rsb_indicator_show_mode="showWhenTouch"
-                app:rsb_indicator_height="20dp"
+                app:rsb_indicator_height="15dp"
                 app:rsb_indicator_width="50dp"
                 app:rsb_indicator_margin="2dp"
+                app:rsb_indicator_radius="3dp"
                 app:rsb_indicator_background_color="@color/royal_blue"
         />
 
@@ -89,9 +99,112 @@
                 android:textSize="22sp"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/seek_bar"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="16dp"
                 app:layout_constraintStart_toStartOf="parent"/>
+
+        <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                app:layout_constraintTop_toBottomOf="@id/sorting_type"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+            <ImageButton
+                    android:id="@+id/glass_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{glassPressed ? @drawable/glass_pressed : @drawable/glass_category, default=@drawable/glass_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="start"
+                    android:onClick="@{() -> viewModel.onGlassClick(glassPressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/plastic_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{plasticPressed ? @drawable/plastic_pressed : @drawable/plastic_category, default=@drawable/plastic_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onPlasticClick(plasticPressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/paper_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{paperPressed ? @drawable/paper_pressed : @drawable/paper_category, default=@drawable/paper_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="start"
+                    android:onClick="@{() -> viewModel.onPaperClick(paperPressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/tablewear_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{tablewarePressed ? @drawable/tableware_pressed : @drawable/tableware_category, default=@drawable/tableware_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onTablewareClick(tablewarePressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/batteries_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{batteriesPressed ? @drawable/batteries_pressed : @drawable/battery_category, default=@drawable/battery_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="9dp"
+                    android:onClick="@{() -> viewModel.onBatteriesClick(batteriesPressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/wood_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{woodPressed ? @drawable/wood_pressed : @drawable/wood_category, default=@drawable/wood_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onWoodClick(woodPressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/metal_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{metalPressed ? @drawable/metal_pressed : @drawable/metal_category, default=@drawable/metal_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="start"
+                    android:onClick="@{() -> viewModel.onMetalClick(metalPressed)}"/>
+
+            <ImageButton
+                    android:id="@+id/other_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{otherPressed ? @drawable/other_pressed : @drawable/other_category, default=@drawable/other_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onOtherClick(otherPressed)}"/>
+        </GridLayout>
+
+        <Button
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="22dp"
+                android:text="@string/apply_filter"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textAllCaps="false"
+                android:background="@drawable/button_purple_corner"/>
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>
