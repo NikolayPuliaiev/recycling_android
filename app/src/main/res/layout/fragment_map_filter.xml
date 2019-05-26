@@ -4,7 +4,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.nikolaypuliaiev.recycling.ui.mapfilter.MapFilterViewModel"/>
+                type="com.nikolaypuliaiev.recycling.ui.map.mapfilter.MapFilterViewModel"/>
 
         <variable name="glassPressed" type="Boolean"/>
         <variable name="plasticPressed" type="Boolean"/>

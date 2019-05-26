@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.nikolaypuliaiev.recycling.ui.map.mapmarker.MapMarkerViewModel"/>
+    </data>
+
+    <RelativeLayout
+            android:id="@+id/outer_layout"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:background="@color/transparent_black">
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_rounded_white"
+                android:clickable="true"
+                android:layout_centerInParent="true">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/place_image"
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_margin="16dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/glass_place"/>
+
+            <TextView
+                    android:id="@+id/place_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Battery processing"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_toEndOf="@+id/place_image"
+                    android:layout_marginStart="8dp"
+                    android:layout_alignTop="@+id/place_image"
+                    android:layout_marginEnd="16dp"/>
+
+            <TextView
+                    android:id="@+id/place_adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valentynovskaya 22"
+                    android:textSize="16sp"
+                    android:textColor="@color/silver_chalice"
+                    android:layout_below="@+id/place_name"
+                    android:layout_alignStart="@+id/place_name"/>
+
+            <TextView
+                    android:id="@+id/place_work_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8:00 - 18:00"
+                    android:textSize="16sp"
+                    android:textColor="@color/silver_chalice"
+                    android:layout_alignStart="@+id/place_adress"
+                    android:layout_below="@+id/place_adress"
+                    android:layout_marginTop="6dp"/>
+
+            <TextView
+                    android:id="@+id/working_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Closed now"
+                    android:textSize="11sp"
+                    android:textColor="@color/lima"
+                    android:layout_toEndOf="@+id/place_work_time"
+                    android:layout_marginStart="17dp"
+                    android:layout_alignTop="@+id/place_work_time"
+                    android:layout_marginTop="4dp"/>
+
+            <ImageButton
+                    android:id="@+id/favorite_button"
+                    android:layout_width="24dp"
+                    android:layout_height="22dp"
+                    android:layout_below="@+id/working_status"
+                    android:layout_alignEnd="@+id/place_name"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/favorite_navigation"/>
+
+            <ImageView
+                    android:id="@+id/navigation_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/navigation"
+                    android:layout_alignStart="@+id/place_image"
+                    android:layout_alignBottom="@+id/favorite_button"
+                    android:layout_marginBottom="8dp"/>
+
+            <TextView
+                    android:id="@+id/place_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300 m"
+                    android:textSize="11sp"
+                    android:textColor="@color/silver_chalice"
+                    android:layout_alignStart="@+id/navigation_icon"
+                    android:layout_alignBottom="@+id/favorite_button"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="5dp"/>
+
+            <RelativeLayout
+                    android:id="@+id/phone_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/navigation_icon"
+                    android:layout_below="@id/navigation_icon"
+                    android:layout_marginTop="8dp">
+
+                <ImageView
+                        android:id="@+id/phone_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/phone_icon"/>
+
+                <TextView
+                        android:id="@+id/place_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+380 (67) 326 48 12"
+                        android:textSize="13sp"
+                        android:textColor="@color/royal_blue"
+                        android:layout_marginStart="26dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/earth_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/phone_layout"
+                    android:layout_below="@+id/phone_layout"
+                    android:layout_marginTop="8dp">
+
+                <ImageView
+                        android:id="@+id/earth_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/earth_icon"/>
+
+                <TextView
+                        android:id="@+id/place_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="glassprocessing.com.ua"
+                        android:textSize="13sp"
+                        android:textColor="@color/royal_blue"
+                        android:layout_marginStart="26dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/earth_layout"
+                    android:layout_alignStart="@+id/earth_layout"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp">
+
+                <ImageView
+                        android:id="@+id/email_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/email_icon"/>
+
+                <TextView
+                        android:id="@+id/place_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="glassprocessing@gmail.com"
+                        android:textSize="13sp"
+                        android:textColor="@color/royal_blue"
+                        android:layout_marginStart="26dp"/>
+            </RelativeLayout>
+
+            <Button
+                    android:id="@+id/sort_button"
+                    android:layout_width="130dp"
+                    android:layout_height="36dp"
+                    android:text="@string/i_sort_it"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_purple_corner"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/email_layout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

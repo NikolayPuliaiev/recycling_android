@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.FragmentMapBinding
@@ -18,7 +20,7 @@ import com.nikolaypuliaiev.recycling.ui.main.MainActivity
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
 
 
-class MapFragment : BaseFragment() {
+class MapFragment : BaseFragment(), GoogleMap.OnMarkerClickListener {
 
     companion object {
         fun newInstance(): MapFragment = MapFragment()
@@ -79,11 +81,13 @@ class MapFragment : BaseFragment() {
         binding.map.getMapAsync { map ->
             // For dropping a marker at a point on the Map
             val sydney = LatLng(-34.0, 151.0)
-            map.addMarker(MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"))
+            map.addMarker(MarkerOptions().position(sydney))
 
             // For zooming automatically to the location of the marker
             val cameraPosition = CameraPosition.Builder().target(sydney).zoom(12f).build()
             map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+
+            map.setOnMarkerClickListener(this)
         }
     }
 
@@ -91,5 +95,15 @@ class MapFragment : BaseFragment() {
         viewModel.filterButtonClick.observe(this, Observer {
             (activity as? MainActivity)?.openFilterScreen()
         })
+    }
+
+    override fun onMarkerClick(marker: Marker?): Boolean {
+
+        (activity as? MainActivity)?.openMarkerScreen()
+
+        // Return false to indicate that we have not consumed the event and that we wish
+        // for the default behavior to occur (which is for the camera to move such that the
+        // marker is centered and for the marker's info window to open, if it has one).
+        return false
     }
 }

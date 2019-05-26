@@ -1,4 +1,4 @@
-package com.nikolaypuliaiev.recycling.ui.mapfilter
+package com.nikolaypuliaiev.recycling.ui.map.mapfilter
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
