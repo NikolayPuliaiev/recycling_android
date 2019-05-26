@@ -1,6 +1,6 @@
 package com.nikolaypuliaiev.recycling.utils.BaseClasses
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 
 open class BaseActivity: AppCompatActivity() {

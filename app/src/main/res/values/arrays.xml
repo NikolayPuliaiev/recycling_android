@@ -60,4 +60,9 @@
         <item>Wyoming</item>
     </string-array>
 
+    <string-array name="weight_unit">
+        <item>kg</item>
+        <item>g</item>
+    </string-array>
+
 </resources>

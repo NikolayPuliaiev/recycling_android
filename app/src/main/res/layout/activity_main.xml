@@ -10,7 +10,7 @@
             android:id="@+id/base_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -27,7 +27,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/navigationView"/>
 
-            <android.support.design.widget.BottomNavigationView
+            <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/navigationView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -40,6 +40,6 @@
                     app:itemTextColor="@color/navigation_item_selector"
                     app:menu="@menu/navigation"/>
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </layout>

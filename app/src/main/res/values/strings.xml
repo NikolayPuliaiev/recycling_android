@@ -12,4 +12,5 @@
     <string name="i_sort_it">I sort it</string>
     <string name="cancel">Cancel</string>
     <string name="accept">Accept</string>
+    <string name="choose_category">Choose category</string>
 </resources>

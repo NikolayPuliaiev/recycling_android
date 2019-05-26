@@ -1,7 +1,7 @@
 package com.nikolaypuliaiev.recycling.ui.map.mapmarker
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +12,7 @@ import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.afollestad.materialdialogs.list.listItems
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.FragmentMapMarkerBinding
+import com.nikolaypuliaiev.recycling.ui.main.MainActivity
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
 
 class MapMarkerFragment : BaseFragment() {
@@ -45,16 +46,7 @@ class MapMarkerFragment : BaseFragment() {
         }
 
         binding.sortButton.setOnClickListener {
-            this.context?.let {
-                MaterialDialog(it, BottomSheet(LayoutMode.WRAP_CONTENT)).show {
-                    listItems(R.array.sample) { dialog, index, text ->
-
-                    }
-
-                    positiveButton(R.string.accept)
-                    negativeButton(R.string.cancel)
-                }
-            }
+            (activity as? MainActivity)?.openSortAcceptScreen()
         }
     }
 }

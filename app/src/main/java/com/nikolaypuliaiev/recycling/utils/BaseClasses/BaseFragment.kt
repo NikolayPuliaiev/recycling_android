@@ -1,7 +1,7 @@
 package com.nikolaypuliaiev.recycling.utils.BaseClasses
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.nikolaypuliaiev.recycling.R
 import io.reactivex.disposables.CompositeDisposable
 

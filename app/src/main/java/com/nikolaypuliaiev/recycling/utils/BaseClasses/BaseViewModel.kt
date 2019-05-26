@@ -1,6 +1,6 @@
 package com.nikolaypuliaiev.recycling.utils.BaseClasses
 
-import android.support.annotation.Nullable
+import androidx.annotation.Nullable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 

@@ -16,7 +16,7 @@
         <variable name="otherPressed" type="Boolean"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -208,5 +208,5 @@
                 android:onClick="@{() -> viewModel.onApplyClick()}"/>
 
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

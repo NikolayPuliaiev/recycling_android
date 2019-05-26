@@ -1,15 +1,16 @@
 package com.nikolaypuliaiev.recycling.ui.main
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.ActivityMainBinding
 import com.nikolaypuliaiev.recycling.ui.favorite.FavoriteFragment
 import com.nikolaypuliaiev.recycling.ui.map.MapFragment
 import com.nikolaypuliaiev.recycling.ui.map.mapfilter.MapFilterFragment
 import com.nikolaypuliaiev.recycling.ui.map.mapmarker.MapMarkerFragment
+import com.nikolaypuliaiev.recycling.ui.map.sortaccept.SortAcceptFragment
 import com.nikolaypuliaiev.recycling.ui.profile.ProfileFragment
 import com.nikolaypuliaiev.recycling.ui.sorting.SortingFragment
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseActivity
@@ -102,6 +103,15 @@ class MainActivity : BaseActivity() {
             ?.beginTransaction()
             ?.add(R.id.base_container, MapMarkerFragment.newInstance())
             ?.addToBackStack("map_marker")
+            ?.commit()
+    }
+
+    fun openSortAcceptScreen() {
+        supportFragmentManager
+            ?.beginTransaction()
+            ?.setCustomAnimations(R.anim.slide_right, 0, 0, R.anim.slide_left)
+            ?.replace(R.id.base_container, SortAcceptFragment.newInstance())
+            ?.addToBackStack("sort_accept")
             ?.commit()
     }
 }

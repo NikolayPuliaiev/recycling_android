@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.nikolaypuliaiev.recycling.ui.map.sortaccept.SortAcceptViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="@drawable/purple_gradient"
+            android:clickable="true">
+
+        <RelativeLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_arrow_white"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@android:color/transparent"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="33dp">
+            <TextView
+                    android:id="@+id/choose_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_category"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"/>
+
+            <Button
+                    android:id="@+id/choose_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/choose_text"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/button_cornflower_corner"
+                    android:text="Batteries"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"/>
+
+            <TextView
+                    android:id="@+id/how_much_sorted_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How much have you sorted?"
+                    android:layout_below="@id/choose_button"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                    android:id="@+id/text_field_boxes"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/how_much_sorted_text"
+                    android:layout_marginTop="8dp"
+                    app:labelText="Enter weight"
+                    app:primaryColor="@color/white"
+                    app:secondaryColor="@color/white"
+                    app:helperTextColor="@color/white"
+                    app:panelBackgroundColor="@color/cornflower_blue"
+                    app:hasClearButton="true"
+                    app:minCharacters="0"
+                    app:maxCharacters="5">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                        android:id="@+id/weight_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:inputType="numberDecimal"/>
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <Button
+                    android:id="@+id/weight_unit_button"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_cornflower_corner"
+                    android:text="kg"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:layout_alignTop="@+id/text_field_boxes"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="6dp"/>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
