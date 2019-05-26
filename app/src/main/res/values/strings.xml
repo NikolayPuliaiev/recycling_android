@@ -10,4 +10,6 @@
     <string name="sorting_type">Sorting type</string>
     <string name="apply_filter">Apply filter</string>
     <string name="i_sort_it">I sort it</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
 </resources>

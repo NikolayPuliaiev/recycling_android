@@ -6,11 +6,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.afollestad.materialdialogs.LayoutMode
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.bottomsheets.BottomSheet
+import com.afollestad.materialdialogs.list.listItems
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.FragmentMapMarkerBinding
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
 
-class MapMarkerFragment: BaseFragment() {
+class MapMarkerFragment : BaseFragment() {
 
     companion object {
         fun newInstance(): MapMarkerFragment = MapMarkerFragment()
@@ -38,6 +42,19 @@ class MapMarkerFragment: BaseFragment() {
     private fun setupUI() {
         binding.outerLayout.setOnClickListener {
             closeCurrentFragmentWithoutAnim()
+        }
+
+        binding.sortButton.setOnClickListener {
+            this.context?.let {
+                MaterialDialog(it, BottomSheet(LayoutMode.WRAP_CONTENT)).show {
+                    listItems(R.array.sample) { dialog, index, text ->
+
+                    }
+
+                    positiveButton(R.string.accept)
+                    negativeButton(R.string.cancel)
+                }
+            }
         }
     }
 }
