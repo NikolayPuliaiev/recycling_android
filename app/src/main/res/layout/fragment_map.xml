@@ -41,18 +41,6 @@
                 app:queryHint="Search"/>
 
         <ImageButton
-                android:id="@+id/list_button"
-                android:layout_width="43dp"
-                android:layout_height="43dp"
-                android:elevation="5dp"
-                android:src="@drawable/list"
-                android:background="@drawable/button_white_corner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="30dp"
-                android:layout_marginEnd="16dp"/>
-
-        <ImageButton
                 android:id="@+id/current_position_button"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
@@ -60,9 +48,9 @@
                 android:src="@drawable/current_position"
                 android:background="@drawable/button_white_corner"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/list_button"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="107dp"
+                android:layout_marginBottom="180dp"
         />
 
         <ImageButton
