@@ -74,6 +74,15 @@ class SortAcceptFragment: BaseFragment() {
         binding.backButton.setOnClickListener {
             closeCurrentFragment()
         }
+
+        binding.nextButton.setOnClickListener {
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(R.anim.slide_right, 0, 0, R.anim.slide_left)
+                ?.add(R.id.base_container, QRCodeSortFragment.newInstance())
+                ?.addToBackStack("qr_code_sort")
+                ?.commit()
+        }
     }
 
 }
