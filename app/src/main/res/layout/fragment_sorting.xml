@@ -3,6 +3,15 @@
 
     <data>
         <variable name="viewModel" type="com.nikolaypuliaiev.recycling.ui.sorting.SortingViewModel"/>
+
+        <variable name="glassPressed" type="Boolean"/>
+        <variable name="plasticPressed" type="Boolean"/>
+        <variable name="paperPressed" type="Boolean"/>
+        <variable name="tablewarePressed" type="Boolean"/>
+        <variable name="batteriesPressed" type="Boolean"/>
+        <variable name="woodPressed" type="Boolean"/>
+        <variable name="metalPressed" type="Boolean"/>
+        <variable name="otherPressed" type="Boolean"/>
     </data>
 
 
@@ -11,14 +20,125 @@
             android:layout_height="match_parent">
 
         <TextView
+                android:id="@+id/sorting_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/sorting"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:textColor="@color/royal_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"/>
+
+        <androidx.appcompat.widget.SearchView
+                android:id="@+id/search"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="SORTING"
-                android:textSize="30sp"/>
+                app:layout_constraintTop_toBottomOf="@id/sorting_text"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_white_corner"
+                android:elevation="3dp"
+                app:iconifiedByDefault="false"
+                app:searchIcon="@null"
+                app:searchHintIcon="@null"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="Search"/>
+
+        <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                app:layout_constraintTop_toBottomOf="@id/search"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+            <ImageButton
+                    android:id="@+id/glass_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{glassPressed ? @drawable/glass_pressed : @drawable/glass_category, default=@drawable/glass_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="start"
+                    android:onClick="@{() -> viewModel.onGlassClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/plastic_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{plasticPressed ? @drawable/plastic_pressed : @drawable/plastic_category, default=@drawable/plastic_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onPlasticClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/paper_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{paperPressed ? @drawable/paper_pressed : @drawable/paper_category, default=@drawable/paper_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="start"
+                    android:onClick="@{() -> viewModel.onPaperClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/tablewear_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{tablewarePressed ? @drawable/tableware_pressed : @drawable/tableware_category, default=@drawable/tableware_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onTablewareClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/batteries_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{batteriesPressed ? @drawable/batteries_pressed : @drawable/battery_category, default=@drawable/battery_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="9dp"
+                    android:onClick="@{() -> viewModel.onBatteriesClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/wood_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{woodPressed ? @drawable/wood_pressed : @drawable/wood_category, default=@drawable/wood_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onWoodClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/metal_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{metalPressed ? @drawable/metal_pressed : @drawable/metal_category, default=@drawable/metal_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="start"
+                    android:onClick="@{() -> viewModel.onMetalClick()}"/>
+
+            <ImageButton
+                    android:id="@+id/other_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@{otherPressed ? @drawable/other_pressed : @drawable/other_category, default=@drawable/other_category}"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="9dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onOtherClick()}"/>
+        </GridLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

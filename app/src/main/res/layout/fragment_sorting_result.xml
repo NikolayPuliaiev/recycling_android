@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+                name="fragment"
+                type="com.nikolaypuliaiev.recycling.ui.sorting.sortingresult.SortingResultFragment"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:clickable="true">
+
+        <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="28dp">
+
+            <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_arrow"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="16dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+            android:onClick="@{() -> fragment.backClicked()}"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/glass_bottle"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="11dp"/>
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/sort_as"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/sort_as_glass"
+                android:textColor="@color/lima"
+                android:textSize="34sp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sort_as"
+                android:text="It should be washed. Labels don’t need to \ntear off. Collect with metal or plastic."
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:layout_marginTop="16dp"/>
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/earth_smile"/>
+
+        <Button
+                android:id="@+id/recieve_points_button"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="117dp"
+                android:layout_marginStart="69dp"
+                android:layout_marginEnd="69dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/button_cornflower_corner"
+                android:text="Receive points on the map"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

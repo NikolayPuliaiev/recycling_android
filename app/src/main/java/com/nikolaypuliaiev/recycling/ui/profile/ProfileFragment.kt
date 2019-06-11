@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.nikolaypuliaiev.recycling.R
 import com.nikolaypuliaiev.recycling.databinding.FragmentProfileBinding
+import com.nikolaypuliaiev.recycling.ui.profile.profileedit.ProfileEditFragment
 import com.nikolaypuliaiev.recycling.utils.BaseClasses.BaseFragment
 
 class ProfileFragment : BaseFragment() {
@@ -30,6 +32,19 @@ class ProfileFragment : BaseFragment() {
 
         binding.viewModel = viewModel
 
+        setupObservers()
+
         return binding.root
+    }
+
+    private fun setupObservers() {
+        viewModel.openEditProfile.observe(this, Observer {
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(R.anim.slide_right, 0, 0, R.anim.slide_left)
+                ?.add(R.id.base_container, ProfileEditFragment.newInstance())
+                ?.addToBackStack("profile_edit")
+                ?.commit()
+        })
     }
 }
